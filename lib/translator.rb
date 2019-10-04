@@ -4,8 +4,8 @@ def load_library(file_path)
   
   emoties = YAML.load_file(file_path).each { |key, value|
   
-    newh['get_emoticon'][value[0]] = emoties[key][1]
-    newh['get_meaning'][value[1]] = key
+    theHash'get_emoticon'][value[0]] = emoties[key][1]
+    theHash['get_meaning'][value[1]] = key
   }
   
   theHash = {get_meaning: {},get_emoticon: {}}
