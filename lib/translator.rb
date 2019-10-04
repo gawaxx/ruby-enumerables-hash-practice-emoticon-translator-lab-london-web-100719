@@ -1,8 +1,8 @@
 require "yaml"
 
-def load_library(p)
+def load_library(file_path)
   
-  emoties = YAML.load_file(p)
+  emoties = YAML.load_file(file_path)
   
   newh = {
     'get_meaning' => {},
