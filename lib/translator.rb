@@ -1,51 +1,35 @@
 require "yaml"
 
-def load_library(filepath)
-  new_hash = {get_meaning: {}, get_emoticon: {}}
 
-  YAML.load_file(filepath).each do |item|
+def load_library(p)
+  
+  emoties = YAML.load_file(p)
+  
+  newh = {
+    'get_meaning' => {},
+    'get_emoticon' => {}
+  }
 
-    new_hash[:get_meaning][item[1][1]] = item[0]
-    new_hash[:get_emoticon][item[1][0]] = item[1][1]
-
+  emoties.map do |key,value|
+    newh['get_emoticon'][value[0]] = emoties[key][1]
+    newh['get_meaning'][value[1]] = key
+    
   end
 
-  return new_hash
-
+  newh
+  
 end
 
-def get_japanese_emoticon(filepath, emoticon)
-
-  new_hash = load_library(filepath)
-
-  if new_hash[:get_emoticon][emoticon]
-
-    rstring = new_hash[:get_emoticon][emoticon]
-
-  else
-
-    rstring = "Sorry, that emoticon was not found"
-
-  end
-
-  return rstring
-
+def get_japanese_emoticon(p, emotie)
+  
+  result = load_library(p)['get_emoticon'][emotie]
+  result ? result : "Sorry, that emoticon was not found"
+  
 end
 
-def get_english_meaning(filepath, emoticon)
-
-    new_hash = load_library(filepath)
-
-    if new_hash[:get_meaning][emoticon]
-
-      rstring = new_hash[:get_meaning][emoticon]
-
-    else
-
-      rstring = "Sorry, that emoticon was not found"
-
-    end
-
-    return rstring
-
+def get_english_meaning(p, emotie)
+  
+  result = load_library(p)['get_meaning'][emotie]
+  result ? result : "Sorry, that emoticon was not found"
+  
 end
