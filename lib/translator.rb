@@ -19,16 +19,16 @@ def load_library(file_path)
   
 end
 
-def get_japanese_emoticon(p, emotie)
+def get_japanese_emoticon(file_path, emotie)
   
-  result = load_library(p)['get_emoticon'][emotie]
+  result = load_library(file_path)['get_emoticon'][emotie]
   result ? result : "Sorry, that emoticon was not found"
   
 end
 
-def get_english_meaning(p, emotie)
+def get_english_meaning(file_path, emotie)
   
-  result = load_library(p)['get_meaning'][emotie]
+  result = load_library(file_path)['get_meaning'][emotie]
   result ? result : "Sorry, that emoticon was not found"
   
 end
