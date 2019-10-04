@@ -9,8 +9,7 @@ def load_library(file_path)
   }
   
   theHash = {get_meaning: {},get_emoticon: {}}
-
-  newh
+  return theHash
   
 end
 
