@@ -1,6 +1,5 @@
 require "yaml"
 
-
 def load_library(p)
   
   emoties = YAML.load_file(p)
