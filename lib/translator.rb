@@ -1,14 +1,14 @@
 require "yaml"
 
 def load_library(file_path)
-  
+  theHash = {get_meaning: {},get_emoticon: {}}
   emoties = YAML.load_file(file_path).each { |key, value|
   
     theHash'get_emoticon'][value[0]] = emoties[key][1]
     theHash['get_meaning'][value[1]] = key
   }
   
-  theHash = {get_meaning: {},get_emoticon: {}}
+  #theHash = {get_meaning: {},get_emoticon: {}}
   return theHash
   
 end
